@@ -7,19 +7,19 @@ process.env.NODE_ENV = "development";
 module.exports = {
   mode: "development",
   target: "web",
-  devTool: "cheap-module-source-map",
+  devtool: "cheap-module-source-map",
   entry: "./src/index",
   output: {
-    path: path.relative(__dirname, "build"),
+    path: path.resolve(__dirname, "build"),
     publicPath: "/",
-    filename: "builde.js",
+    filename: "bundle.js",
   },
   devServer: {
     stats: "minimal",
     overlay: true,
     historyApiFallback: true,
     disableHostCheck: true,
-    headers: { "Access-control-Allow-Origin": "*" },
+    headers: { "Access-Control-Allow-Origin": "*" },
     https: false,
   },
   plugins: [
@@ -36,7 +36,7 @@ module.exports = {
         use: ["babel-loader"],
       },
       {
-        test: /\.(js|jsx)$/,
+        test: /(\.css)$/,
         use: ["style-loader", "css-loader"],
       },
     ],
