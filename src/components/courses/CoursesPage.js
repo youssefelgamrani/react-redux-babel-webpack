@@ -51,26 +51,11 @@ function mapStateToProps(state) {
     courses: state.courses,
   };
 }
-/** Type 1 : native one */
-/** 
-function mapDispatchToProps(dispatch) {
-  return {
-    createCourse: (course) => dispatch(courseActions.createCourse(course)),
-  };
-}*/
-
-/** Type 2 : use bindActionCreators */
 
 function mapDispatchToProps(dispatch) {
   return {
     courseActions: bindActionCreators(courseActions, dispatch),
   };
 }
-
-/** Type 3 */
-/**
-const mapDispatchToProps = {
-  createCourse: courseActions.createCourse,
-};*/
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
