@@ -25,7 +25,7 @@ function CourseList({ courses }) {
               <td>
                 <Link to={"/course/" + course.slug}>{course.title}</Link>
               </td>
-              <td>{course.authorId}</td>
+              <td>{course.authorName}</td>
               <td>{course.category}</td>
             </tr>
           );
@@ -36,7 +36,7 @@ function CourseList({ courses }) {
 }
 
 CourseList.propTypes = {
-  courses: PropTypes.isrequired,
+  courses: PropTypes.array.isRequired,
 };
 
 export default CourseList;
